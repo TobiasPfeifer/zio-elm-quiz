@@ -1,0 +1,14 @@
+mutation {
+  createGame(quizId: "6b34c4ce-df46-47cd-b639-ccf8f08a5bf3", title: "my test game") {
+    game {
+      gameId
+      title
+      pin
+      adminCode
+      quizEntity {
+        quizId
+      }
+      createdTimestamp
+    }
+  }
+}

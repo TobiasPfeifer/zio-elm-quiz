@@ -1,0 +1,17 @@
+{
+  quiz (quizId: "1") {
+    quizId,
+    quiz {
+      title,
+      questions {
+        question,
+        imageUrl,
+        points,
+        choices {
+          a, b, c, d
+        }
+        correctAnswer
+      }
+    }
+  }
+}

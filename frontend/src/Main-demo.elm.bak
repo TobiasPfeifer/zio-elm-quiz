@@ -1,0 +1,40 @@
+port module Main exposing (main)
+
+import Browser
+import Html exposing (text)
+import Graphql.Document
+import Html exposing (Html, div, text)
+import Quiz.Subscription as Subscription
+import Quiz.Union
+
+type alias Model = String
+type Msg = SubscriptionDataReceived String
+
+port createTestSubscription : String -> Cmd msg
+port receivedTestSubscriptionData : (String -> msg) -> Sub msg
+
+port joinGame: 
+port gameEventSubscription: Quiz.Union.Event -> msg -> Sub msg
+
+init : () -> ( Model, Cmd Msg )
+init flags = ( "initial", createTestSubscription (Subscription.test |> Graphql.Document.serializeSubscription))
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of SubscriptionDataReceived s -> (s, Cmd.none)
+
+subscriptions : Model -> Sub Msg
+subscriptions model = Sub.batch
+    [ receivedTestSubscriptionData SubscriptionDataReceived]
+
+view : Model -> Html.Html Msg
+view model = div[] [text model]
+
+main : Program () Model Msg
+main =
+    Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }

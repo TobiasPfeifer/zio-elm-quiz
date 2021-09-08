@@ -1,0 +1,44 @@
+mutation {
+  createQuiz (
+    title: "Brandnew Quiz",
+    questions: [{
+      question: "Which of the following currencies is still in use?",
+      imageUrl: "https://i.postimg.cc/VvpxxcKw/image.png",
+      points: 10,
+      choices: {
+        a: "German mark",
+        b: "Taiwanese yen",
+        c: "Iranian qiran",
+        d: "Fijian dollar"
+      },
+      correctAnswer: D,
+    },
+    {
+      question: "Where is Zimbabwe located?",
+      points: 2,
+      choices: {
+        a: "South America",
+        b: "Europe",
+        c: "Afrika",
+        d: "Asia"
+      },
+      correctAnswer: C,
+    }
+    ]
+  )
+  {
+	quizId,
+    quiz {
+      title,
+      questions {
+        question,
+        imageUrl,
+        points,
+        choices {
+          a, b, c, d
+        }
+        correctAnswer
+      }
+    }
+  }
+}

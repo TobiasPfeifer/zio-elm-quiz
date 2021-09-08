@@ -1,0 +1,34 @@
+{
+  "name": "zio-elm-quiz-frontend",
+  "version": "0.0.1",
+  "description": "setup based on https://hasura.io/learn/graphql/elm-graphql/apollo-client/",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "npm run browserify && elm make src/Main.elm --output public/app.js --optimize && uglifyjs public/app.js --compress --output public/app.min.js && uglifyjs public/app.js --mangle --output public/app.js",
+    "start": "npm run browserify && elm-live src/Main.elm --path-to-elm=node_modules/.bin/elm --port=8081 --host=localhost --open --pushstate --dir=public/ --start-page=index.html -- --output=public/app.js --debug",
+    "generate-elm-types": "elm-graphql http://localhost:8080/api/graphql --base Quiz --output src/graphql",
+    "browserify": "browserify public/index.js -o public/index.bundle.js",
+    "format": "elm-format src/"
+  },
+  "author": "",
+  "devDependencies": {
+    "@dillonkearns/elm-graphql": "^4.2.1",
+    "browserify": "^17.0.0",
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.5",
+    "elm-live": "^4.0.2",
+    "uglify-js": "^3.13.5"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-ws": "^1.0.20",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.12.4",
+    "material-components-web-elm": "^7.0.0",
+    "subscriptions-transport-ws": "^0.9.18"
+  }
+}

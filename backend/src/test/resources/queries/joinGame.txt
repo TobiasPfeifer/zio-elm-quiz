@@ -1,0 +1,15 @@
+subscription {
+  joinGame(gamePin: "123", playerName: "player") {
+    __typename
+  }
+}
+
+
+        "gameId": "7df485ff-f49b-4897-b473-a52dc248b71b",
+        "title": "my test game",
+        "pin": "7jbOOr",
+        "adminCode": "1ecb05c1-9312-4db5-bf07-1a6c796376c1",
+        "quizEntity": {
+          "quizId": "1"
+        },
+        "createdTimestamp": 1619290185

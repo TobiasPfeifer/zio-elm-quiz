@@ -1,0 +1,16 @@
+{
+  quizzes(limit: 100) {
+    quiz {
+      title,
+      questions {
+        question,
+        imageUrl,
+        points,
+        choices {
+          a, b, c, d
+        }
+        correctAnswer
+      }
+    }
+  }
+}
